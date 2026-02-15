@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 220 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 15%;
+
+    --primary: 160 84% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 94%;
+    --secondary-foreground: 220 30% 15%;
+
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 15% 40%;
+
+    --accent: 160 84% 36%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 82%;
+    --input: 220 20% 82%;
+    --ring: 160 84% 36%;
+
+    --radius: 1rem;
+
+    /* Category colors - extended palette (more saturated for light mode) */
+    --cat-emerald: 160 84% 32%;
+    --cat-violet: 262 83% 50%;
+    --cat-amber: 38 92% 45%;
+    --cat-sky: 199 89% 42%;
+    --cat-lime: 142 71% 38%;
+    --cat-rose: 340 82% 48%;
+    --cat-orange: 25 95% 48%;
+    --cat-cyan: 185 94% 36%;
+    --cat-indigo: 239 84% 58%;
+    --cat-pink: 330 81% 52%;
+
+    /* Shadows - more prominent for light mode */
+    --shadow-sm: 0 1px 3px hsl(220 30% 15% / 0.06), 0 1px 2px hsl(220 30% 15% / 0.04);
+    --shadow-md: 0 4px 12px hsl(220 30% 15% / 0.08), 0 2px 4px hsl(220 30% 15% / 0.04);
+    --shadow-lg: 0 10px 40px hsl(220 30% 15% / 0.1), 0 4px 12px hsl(220 30% 15% / 0.05);
+    --shadow-glow: 0 0 40px hsl(160 84% 36% / 0.06);
+    --shadow-card: 0 1px 3px hsl(220 30% 15% / 0.05), 0 4px 16px hsl(220 30% 15% / 0.04);
+
+    --sidebar-background: 210 20% 98%;
+    --sidebar-foreground: 220 30% 15%;
+    --sidebar-primary: 160 84% 36%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 94%;
+    --sidebar-accent-foreground: 220 30% 15%;
+    --sidebar-border: 220 20% 82%;
+    --sidebar-ring: 160 84% 36%;
+  }
+
+  .dark {
+    --background: 228 25% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 228 25% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 228 25% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 160 84% 45%;
+    --primary-foreground: 228 25% 8%;
+
+    --secondary: 228 20% 16%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 228 20% 16%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 160 84% 45%;
+    --accent-foreground: 228 25% 8%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 228 20% 18%;
+    --input: 228 20% 18%;
+    --ring: 160 84% 45%;
+
+    /* Category colors - extended palette */
+    --cat-emerald: 160 84% 45%;
+    --cat-violet: 262 83% 58%;
+    --cat-amber: 38 92% 50%;
+    --cat-sky: 199 89% 48%;
+    --cat-lime: 142 71% 45%;
+    --cat-rose: 340 82% 52%;
+    --cat-orange: 25 95% 53%;
+    --cat-cyan: 185 94% 42%;
+    --cat-indigo: 239 84% 67%;
+    --cat-pink: 330 81% 60%;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px hsl(228 25% 4% / 0.5);
+    --shadow-md: 0 4px 20px hsl(228 25% 4% / 0.6);
+    --shadow-lg: 0 8px 40px hsl(228 25% 4% / 0.7);
+    --shadow-glow: 0 0 60px hsl(160 84% 45% / 0.12);
+    --shadow-card: 0 4px 24px hsl(228 25% 4% / 0.4), inset 0 1px 0 hsl(228 20% 20% / 0.5);
+
+    --sidebar-background: 228 25% 10%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 160 84% 45%;
+    --sidebar-primary-foreground: 228 25% 8%;
+    --sidebar-accent: 228 20% 16%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 228 20% 18%;
+    --sidebar-ring: 160 84% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card/90 backdrop-blur-xl shadow-[var(--shadow-card)];
+  }
+  
+  .glass-border {
+    @apply border border-border;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+  
+  .card-glow {
+    box-shadow: var(--shadow-card), var(--shadow-glow);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-lg;
+  }
+
+  /* Light mode specific enhancements */
+  :root .glass {
+    @apply bg-card shadow-[var(--shadow-card)];
+  }
+  
+  .dark .glass {
+    @apply bg-card/80;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 3s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+    background-size: 200% 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
